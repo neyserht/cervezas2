@@ -5,12 +5,50 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.CheckBox?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="neyser.cervezas2.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Label fx:id="label1" text=""/>
+
+    <ComboBox fx:id="comboBox1" promptText="tipo de cerveza" id="tipoCerveza" onAction="#f1">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:id="choice0" fx:value="rubia"/>
+                <String fx:id="choice1" fx:value="tostada"/>
+                <String fx:id="choice2" fx:value="negra"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <ComboBox fx:id="comboBox2" promptText="marca de cerveza" id="marcaCerveza">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <RadioButton fx:id="radioButton1" text="media pinta" selected="true">
+        <toggleGroup>
+            <ToggleGroup fx:id="group1"/>
+        </toggleGroup>
+    </RadioButton>
+    <RadioButton fx:id="radioButton2" text="una pinta">
+        <toggleGroup>
+            <fx:reference source="group1"/>
+        </toggleGroup>
+    </RadioButton>
+
+    <CheckBox fx:id="checkBox1" text="hora feliz"/>
+    <Button fx:id="button1" text="Aceptar" onAction="#f2"/>
+
+
 </VBox>
